@@ -1,18 +1,13 @@
+use std::convert::TryInto; // Enables to be called on those types that have implemented it (suck as u16)
+
 fn main() {
-  let twenty = 20; // rust infers a type on your behalf if you dont supply one
-  let twenty_one: i32 = 21; // which is done by adding type annotations
-  let twenty_two = 22i32; // or type suffix
+  let a: i32 = 10;
+  let b: u16 = 100;
 
-  let addition = twenty + twenty_one + twenty_two;
-  println!("{} + {} + {} = {}", twenty, twenty_one, twenty_two, addition);
+  let b_ = b.try_into().unwrap();
 
-  let one_million: i64 = 1_000_000; // underscores are ignored by compiler
-  println!("{}", one_million.pow(2)); // numbers have methods
-
-  let forty_twos = [
-    42.0,
-    42f32,
-    42.0_f32,
-  ];
-  println!("{:02}", forty_twos[0]);
+  if a < b_ {
+    println!("Ten is less than one hundred.")
+  }
 }
+
