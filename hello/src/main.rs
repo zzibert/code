@@ -1,10 +1,18 @@
-use std::rc::Rc;
-use std::sync::{Arc, Mutex};
-
 fn main() {
-  let a = 10;
-  let b = Box::new(20);
-  let c = Rc::new(Box::new(30));
-  let d = Arc::new(Mutex::new(40));
-  println!("a: {:?}, b: {:?}, c: {:?}, d: {:?}", a, b, c, d)
+  let twenty = 20; // rust infers a type on your behalf if you dont supply one
+  let twenty_one: i32 = 21; // which is done by adding type annotations
+  let twenty_two = 22i32; // or type suffix
+
+  let addition = twenty + twenty_one + twenty_two;
+  println!("{} + {} + {} = {}", twenty, twenty_one, twenty_two, addition);
+
+  let one_million: i64 = 1_000_000; // underscores are ignored by compiler
+  println!("{}", one_million.pow(2)); // numbers have methods
+
+  let forty_twos = [
+    42.0,
+    42f32,
+    42.0_f32,
+  ];
+  println!("{:02}", forty_twos[0]);
 }
