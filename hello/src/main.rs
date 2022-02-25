@@ -1,7 +1,3 @@
-fn main() {
-  let a = 42;
-  let r = &a;
-  let b = a + *r;
-
-  println!("a + a = {}", b);
+fn add_with_lifetimes<'a, 'b>(i: &'a i32, j: &'b i32) -> i32 {
+  *i + ?j
 }
