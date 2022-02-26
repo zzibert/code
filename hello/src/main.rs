@@ -1,9 +1,14 @@
-fn use_value(_val: i32) {
+fn use_value(_val: Demo) {
 
 }
 
+struct Demo {
+  a: i32,
+}
+
 fn main() {
-  let a = 123;
-  use_value(a);
-  println!("{}", a);
+  let demo = Demo { a: 123 };
+  use_value(demo);
+
+  println!("{}", demo.a);
 }
