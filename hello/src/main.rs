@@ -1,14 +1,21 @@
-fn use_value(_val: Demo) {
-
+#[derive(Debug)]
+struct CubeSat {
+  id: u64,
+  mailbox: Mailbox,
 }
 
-struct Demo {
-  a: i32,
+#[derive(Debug)]
+enum StatusMessage {
+  Ok,
 }
+
+#[derive(Debug)]
+struct Mailbox {
+  messages: Vec<Message>,
+}
+
+type Message = String;
 
 fn main() {
-  let demo = Demo { a: 123 };
-  use_value(demo);
 
-  println!("{}", demo.a);
 }
