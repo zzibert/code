@@ -1,35 +1,25 @@
-#[derive(Debug)]
+#[derive(Debug,Copy,Clone)]
 struct CubeSat {
   id: u64,
-  mailbox: Mailbox,
 }
 
-struct GroundStation;
-
-impl GroundStation {
-  fn send(&self, to: &mut CubeSat, msg: Message) {
-    to.mailbox.messages.push(msg);
-  }
-}
-
-impl CubeSat {
-  fn recv(&mut self) -> Option<Message> {
-    self.mailbox.messages.pop()
-  }
-}
-
-#[derive(Debug)]
+#[derive(Debug,Copy,Clone)]
 enum StatusMessage {
   Ok,
 }
 
-#[derive(Debug)]
-struct Mailbox {
-  messages: Vec<Message>,
+fn check_status(sat_id: CubeSat) -> StatusMessage {
+  StatusMessage::Ok
 }
 
-type Message = String;
-
 fn main() {
+  let sat_a = CubeSat { id: 0 };
 
+  let a_status = check_status(sat_a);
+
+  println!("a {:?}", a_status);
+
+  let a_status = check_status(sat_a);
+
+  println!("a {:?}", a_status);
 }
