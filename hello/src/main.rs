@@ -1,10 +1,7 @@
-use std::rc::Rc;
-
-#[derive(Debug)]
-struct GroundStation {}
-
 fn main() {
-  let base = Rc::new(GroundStation {});
+  let n: f32 = 42.42;
+  let n_bits: u32 = n.to_bits();
+  let sign_bit = n_bits >> 31;
 
-  println!("{:?}", base);
+  println!("{:?}", sign_bit)
 }
