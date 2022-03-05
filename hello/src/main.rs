@@ -1,9 +1,6 @@
 fn main() {
-  let a: i64 = 42;
-  let a_ptr = &a as *const i64;
-  let a_addr: usize = unsafe {
-    std::mem::transmute(a_ptr)
-  };
+  let a: i32 = 40;
+  let b: Box<i32> = Box::new(60);
 
-  println!("a: {} ({:p})...0x{:x}", a, a_ptr, a_addr + 7)
+  println!("{} + {} = {}", a, b, a + *b);
 }
